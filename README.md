@@ -6,3 +6,6 @@ Repozytorium z kodem tworzonym w trakcie kursu "Django od podstaw"
 Ta linijka została dopisana w innym repozytorium.
 
 Mogę coś dodać od siebie.
+
+Dodałem to, czego brakowało.
+
