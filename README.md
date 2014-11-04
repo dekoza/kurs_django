@@ -9,3 +9,4 @@ Mogę coś dodać od siebie.
 
 Dodałem to, czego brakowało.
 
+A, zapomniałem jeszcze o tym!
