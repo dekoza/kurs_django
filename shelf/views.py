@@ -8,3 +8,4 @@ class AuthorListView(ListView):
 
 class AuthorDetailView(DetailView):
     model = Author
+
