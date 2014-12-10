@@ -1,9 +1,14 @@
-{% extends "base.html" %}
+{% extends "base.html" %}{% load shelf_tags %}
 
 {% block 'content' %}
 
 <a href="{% url 'shelf:book-list'%}">Powrót do listy książek</a>
 
 <h1>{{ object.title }}</h1>
+
+<h2>Wydania:</h2>
+
+{% show_editions object %}
+
 
 {% endblock %}

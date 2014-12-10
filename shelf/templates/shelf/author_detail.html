@@ -9,7 +9,7 @@ Profil autora: {{ object.last_name }}, {{ object.first_name }}
 <h2>Książki:</h2>
 <ul>
 {% for book in object.book_set.all %}
-    <li><a href="{% url 'shelf:book-detail' book.id %}">{{ book.title }}</a></li>
+    <li><a href="{{ book.get_absolute_url }}">{{ book.title }}</a></li>
 {% endfor %}
 </ul>
 

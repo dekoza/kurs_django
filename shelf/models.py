@@ -3,10 +3,8 @@ from __future__ import unicode_literals, absolute_import
 from django.utils.encoding import python_2_unicode_compatible
 
 from django.utils.translation import ugettext_lazy as _
-
+from django.core.urlresolvers import reverse_lazy
 from django.db import models
-
-from django.utils.translation import ugettext_lazy as _
 
 
 @python_2_unicode_compatible
@@ -22,11 +20,6 @@ class Author(models.Model):
         ordering = ('last_name', 'first_name')
         verbose_name = _('author')  # raczej Dopełniacz niż Mianownik
         verbose_name_plural = _('authors')
-
-    class Meta:
-        ordering = ('last_name', 'first_name')
-        verbose_name = _('Author')  # raczej używać Dopełniacza
-        verbose_name_plural = _('Authors')
 
 
 @python_2_unicode_compatible
@@ -59,13 +52,16 @@ class Book(models.Model):
     def __str__(self):
         return self.title
 
+    def get_absolute_url(self):
+        return reverse_lazy('shelf:book-detail', kwargs={'pk':self.id})
+
 
 @python_2_unicode_compatible
 class BookEdition(models.Model):
     """
     Wydanie określonej książki
     """
-    book = models.ForeignKey(Book)
+    book = models.ForeignKey(Book, related_name='editions')
     publisher = models.ForeignKey(Publisher)
     date = models.DateField()
     isbn = models.CharField(max_length=17, blank=True)
