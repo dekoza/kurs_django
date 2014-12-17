@@ -10,7 +10,12 @@
 
 <body>
 	<!-- treść strony tutaj -->
-    {% block 'content' %}
+    
+    <div>
+    MENU GŁÓWNE: {% if user.is_authenticated %}<a href="{% url 'account_logout' %}">Wyloguj się</a> {% else %}<a href="{% url 'account_login'%} ">Zaloguj się</a>, <a href="{% url 'account_signup' %}">Załóż konto</a>{% endif %}
+    </div>
+    
+    {% block content %}
     
     {% endblock %}
 </body>
