@@ -12,6 +12,9 @@ urlpatterns = patterns('',
     url(r'^shelf/', include('shelf.urls', namespace='shelf') ),
     url(r'^contact/$', MessageAddView.as_view()),
     url(r'^accounts/', include('allauth.urls')),
+    #~ url(r'^accounts/profile/$', MyProfileView.as_view()),
     
     url(r'^$', 'shelf.views.index_view', name='main-page'),
 )
+
+

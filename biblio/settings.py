@@ -52,6 +52,13 @@ class Production(Configuration):
     # Application definition
 
     INSTALLED_APPS = (
+        'shelf',
+        'contact',
+        'rental',
+        'users',
+        
+        ###################
+        
         'django.contrib.admin',
         'django.contrib.auth',
         'django.contrib.contenttypes',
@@ -59,18 +66,17 @@ class Production(Configuration):
         'django.contrib.messages',
         'django.contrib.staticfiles',
         'django.contrib.sites',
+        'bootstrap3',
+        
         ###################
 
         'allauth',
         'allauth.account',
         'allauth.socialaccount',
-        'allauth.socialaccount.providers.facebook',
+        # 'allauth.socialaccount.providers.facebook',
 
         ###################
-        'shelf',
-        'contact',
-        'rental',
-        'users',
+
     )
 
     MIDDLEWARE_CLASSES = (
@@ -116,7 +122,7 @@ class Production(Configuration):
     # Static files (CSS, JavaScript, Images)
     # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
-    STATIC_URL = '/static/'
+    
 
     TEMPLATE_DIRS = (
         os.path.join(BASE_DIR, 'templates'),
@@ -142,7 +148,19 @@ class Production(Configuration):
 
     SITE_ID = 1  # because of 'django.contrib.sites'
 
-    LOGIN_URL = 'main-page'  # '/'
+    LOGIN_REDIRECT_URL = 'main-page'  # '/'
+    
+    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+    STATIC_URL = '/static/'
+
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+    
+    MEDIA_URL = '/media/'
+    
+    STATICFILES_DIRS = [
+        ("media", os.path.join(BASE_DIR, 'media')),
+    ]
 
 
 class Dev(Production):

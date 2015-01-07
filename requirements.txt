@@ -1,7 +1,8 @@
-Django==1.7.1
+Django==1.7.2
 Pillow==2.6.1
 defusedxml==0.4.1
 django-allauth==0.18.0
+django-bootstrap3==5.0.3
 django-configurations==0.8
 ipython==2.3.0
 oauthlib==0.7.2

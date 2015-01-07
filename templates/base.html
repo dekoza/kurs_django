@@ -1,23 +1,24 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-
+{#% load socialaccount %#}
+{% load staticfiles %}
+{% load bootstrap3 %}
 <head>
 	<title>{% block title %}tytuł strony{%endblock%}</title>
 	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
 	<meta name="generator" content="Geany 1.24.1" />
+	{#% providers_media_js %#}
+	{% bootstrap_css %}
+	{% bootstrap_javascript %}
 </head>
 
 <body>
 	<!-- treść strony tutaj -->
-    
+    {% bootstrap_messages %}
     <div>
-    MENU GŁÓWNE: {% if user.is_authenticated %}<a href="{% url 'account_logout' %}">Wyloguj się</a> {% else %}<a href="{% url 'account_login'%} ">Zaloguj się</a>, <a href="{% url 'account_signup' %}">Załóż konto</a>{% endif %}
+    MENU GŁÓWNE: {% if user.is_authenticated %}<a class="btn btn-default" href="{% url 'account_logout' %}">Wyloguj się</a> {% else %}<a class="btn btn-default" href="{% url 'account_login'%} ">Zaloguj się</a>, <a class="btn btn-default" href="{% url 'account_signup' %}">Załóż konto</a> {#<a class="btn btn-default" href="{% provider_login_url 'facebook' method='js_sdk' %}">Facebook Connect</a>#}{% endif %}
 
-
-    {% load socialaccount %}
-{% providers_media_js %}
-<a href="{% provider_login_url 'facebook' method='js_sdk' %}">Facebook Connect</a>
     </div>
     
     {% block content %}
