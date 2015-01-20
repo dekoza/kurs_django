@@ -13,3 +13,8 @@ class Rental(models.Model):
 
     def __str__(self):
         return '' # zadanie domowe :)
+
+    class Meta:
+        permissions = (
+            ('can_rent', 'Can rent a book'), # czy użytkownik może dokonać wypożyczenia
+        )

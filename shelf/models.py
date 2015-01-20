@@ -90,3 +90,4 @@ class BookItem(models.Model):
     def __str__(self):
         return "{edition}, {cover}".format(edition=self.edition,
                                            cover=self.get_cover_type_display())
+
