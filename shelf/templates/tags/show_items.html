@@ -1,0 +1,4 @@
+{% load shelf_tags %}
+<ul>{% for item in items %}
+<li>Wyd: {{ item.edition.publisher.name }} {{ item.edition.date.year }}; Cover {{ item.cover_type }} - no. {{ item.catalogue_number }}</li>
+{% endfor %}</ul>

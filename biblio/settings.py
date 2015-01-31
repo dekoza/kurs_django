@@ -67,6 +67,7 @@ class Production(Configuration):
         'django.contrib.staticfiles',
         'django.contrib.sites',
         'bootstrap3',
+        'crispy_forms',
         
         ###################
 
@@ -161,7 +162,8 @@ class Production(Configuration):
     STATICFILES_DIRS = [
         ("media", os.path.join(BASE_DIR, 'media')),
     ]
-
+    
+    CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 class Dev(Production):
     DEBUG = True

@@ -16,6 +16,8 @@ urlpatterns = patterns('',
     url(r'^accounts/', include('allauth.urls')),
     #~ url(r'^accounts/profile/$', MyProfileView.as_view()),
     
+    url(r'^rent/', include('rental.urls', namespace='rental')),
+    
     url(r'^$', 'shelf.views.index_view', name='main-page'),
 
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
