@@ -68,6 +68,7 @@ class Production(Configuration):
         'django.contrib.sites',
         'bootstrap3',
         'crispy_forms',
+        'rest_framework',
         
         ###################
 

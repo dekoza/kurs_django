@@ -5,6 +5,9 @@ from django.conf.urls.static import static
 
 from contact.views import MessageAddView
 
+from .api_v1 import router as v1_router
+
+
 urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'biblio.views.home', name='home'),
@@ -18,6 +21,10 @@ urlpatterns = patterns('',
     
     url(r'^rent/', include('rental.urls', namespace='rental')),
     
+    url(r'^api/v1/', include(v1_router.urls)),
+    
     url(r'^$', 'shelf.views.index_view', name='main-page'),
+
+
 
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

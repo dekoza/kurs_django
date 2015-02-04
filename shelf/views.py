@@ -7,6 +7,7 @@ from django.utils.decorators import method_decorator
 from .models import Author, Book
 
 
+
 class MainPageView(TemplateView):
     template_name = 'index.html'
 
@@ -31,3 +32,6 @@ class BookListView(ListView):
 
 class BookDetailView(DetailView):
     model = Book
+
+
+
